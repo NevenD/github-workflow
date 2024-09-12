@@ -7,6 +7,12 @@ jobs:
       matrix:
         node-version: [12, 14, 16] # može biti bilo koji key
         os: [ubuntu-latest, windows-latest] # može biti bilo koji key
+        include: # uključuje standalone kombinacije
+          - node-version: 18
+          - os: ubuntu-latest
+        exclude: # isključuje kombinaciju
+          - node-version: 12
+            os: windows-latest
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get Code
