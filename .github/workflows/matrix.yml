@@ -2,6 +2,7 @@ name: Matrix Demo
 on: push
 jobs:
   build:
+    continue-on-error: true #nastavlja s execution of jobs cač i ako neki jobovi fejlaju
     strategy:
       matrix:
         node-version: [12, 14, 16] # može biti bilo koji key
