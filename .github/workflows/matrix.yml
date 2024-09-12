@@ -5,8 +5,8 @@ jobs:
     continue-on-error: true #nastavlja s execution of jobs cač i ako neki jobovi fejlaju
     strategy:
       matrix:
-        node-version: [12, 14, 16] # može biti bilo koji key
-        os: [ubuntu-latest, windows-latest] # može biti bilo koji key
+        node-version: [12, 14, 16] # može biti bilo koji key umjesto node-version
+        os: [ubuntu-latest, windows-latest] # može biti bilo koji key umjesto os
         include: # uključuje standalone kombinacije
           - node-version: 18
           - os: ubuntu-latest
