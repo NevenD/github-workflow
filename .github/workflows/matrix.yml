@@ -12,7 +12,7 @@ jobs:
           - os: ubuntu-latest
         exclude: # isključuje kombinaciju
           - node-version: 12
-            os: windows-latest
+          - os: windows-latest
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get Code
