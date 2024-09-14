@@ -1,8 +1,21 @@
 name: Reusable Demo
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      artifact-name-neven: # mozemo dati bilo koje ime
+        description: The random description
+          required: false # ako je true onda je input vrijednost potrebna, u protivnom će workflow pasti
+          default: dist #ako nismo dobili nikakav input u tom slučaju koristi dist kao defaultnu vrijednost
+          type: string
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Get Code
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.artifact-name-neven }}
+      - name: List files
+        run: ls
       - name: Output information
         run: echo "Deploying & uploading..."
