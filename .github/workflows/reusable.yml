@@ -1,12 +1,12 @@
 name: Reusable Demo
-on: 
+on:
   workflow_call:
     inputs:
       artifact-name-neven: # mozemo dati bilo koje ime
         description: The random description
-          required: false # ako je true onda je input vrijednost potrebna, u protivnom će workflow pasti
-          default: dist #ako nismo dobili nikakav input u tom slučaju koristi dist kao defaultnu vrijednost
-          type: string
+        required: false # ako je true onda je input vrijednost potrebna, u protivnom će workflow pasti
+        default: dist #ako nismo dobili nikakav input u tom slučaju koristi dist kao defaultnu vrijednost
+        type: string
 jobs:
   deploy:
     runs-on: ubuntu-latest
