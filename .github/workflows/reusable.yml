@@ -7,11 +7,17 @@ on:
         required: false # ako je true onda je input vrijednost potrebna, u protivnom će workflow pasti
         default: dist #ako nismo dobili nikakav input u tom slučaju koristi dist kao defaultnu vrijednost
         type: string
+    outputs:
+      result-name:
+        description: The result random text
+        value: ${{ jobs.deploy.outputs.result-neven-outcome }}
     # secrets:
     #   some-secret:
     #     required: false
 jobs:
   deploy:
+    outputs:
+      result-neven-outcome: ${{ steps.set-result-neven.outputs.step-result-name }}
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -22,3 +28,6 @@ jobs:
         run: ls
       - name: Output information
         run: echo "Deploying & uploading..."
+      - name: Set result output
+        id: set-result-neven
+        run: echo "step-result-name=success >> $GITHUB_OUTPUT"
