@@ -30,4 +30,4 @@ jobs:
         run: echo "Deploying & uploading..."
       - name: Set result output
         id: set-result-neven
-        run: echo "step-result-name=success >> $GITHUB_OUTPUT"
+        run: echo "step-result-name=success" >> $GITHUB_OUTPUT
