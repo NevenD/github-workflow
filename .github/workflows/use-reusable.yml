@@ -69,8 +69,10 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/reusable.yml
-    with:
+    with: #with se koristi za input only
       artifact-name-neven: dist-files # dodajemo željeni input u reusable workflow
+    # secrets:
+    #   some-secret: $ {{secrets.some-secrets}}
   report:
     needs: [lint, deploy]
     if: failure()

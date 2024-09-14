@@ -7,6 +7,9 @@ on:
         required: false # ako je true onda je input vrijednost potrebna, u protivnom će workflow pasti
         default: dist #ako nismo dobili nikakav input u tom slučaju koristi dist kao defaultnu vrijednost
         type: string
+    # secrets:
+    #   some-secret:
+    #     required: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
